@@ -5,6 +5,7 @@ import { Bug, BugSeverity, BugStatus } from '@/types';
 import { generateId, formatDate } from '@/lib/storyUtils';
 import StatusBadge from '@/components/StatusBadge';
 import StatCard from '@/components/StatCard';
+import StorySelector from '@/components/StorySelector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
