@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
-import { useDependencies, useStories } from '@/store/useStore';
+import { useDependencies } from '@/store/useStore';
 import { Dependency, DependencyType, DependencyStatus } from '@/types';
 import { generateId, formatDate, daysBetween } from '@/lib/storyUtils';
 import StatusBadge from '@/components/StatusBadge';
 import StatCard from '@/components/StatCard';
+import StorySelector from '@/components/StorySelector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -23,7 +24,7 @@ const emptyDep = (): Dependency => ({
 
 export default function DependenciesPage() {
   const { dependencies, addDependency, updateDependency, deleteDependency } = useDependencies();
-  const { stories } = useStories();
+  
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editing, setEditing] = useState<Dependency | null>(null);
 
@@ -93,9 +94,10 @@ export default function DependenciesPage() {
           <DialogHeader><DialogTitle>{editing && dependencies.find(d => d.id === editing.id) ? 'Edit' : 'Add'} Dependency</DialogTitle></DialogHeader>
           {editing && (
             <div className="grid grid-cols-2 gap-3">
-              <div><Label className="text-xs">Story ID</Label><Input value={editing.storyId} onChange={e => update('storyId', e.target.value)} /></div>
-              <div><Label className="text-xs">Phase</Label><Input type="number" min={1} value={editing.phaseNumber} onChange={e => update('phaseNumber', parseInt(e.target.value) || 1)} /></div>
-              <div className="col-span-2"><Label className="text-xs">Story Name</Label><Input value={editing.storyName} onChange={e => update('storyName', e.target.value)} /></div>
+              <StorySelector
+                value={editing.storyId ? `${editing.storyId}|${editing.phaseNumber}` : ''}
+                onChange={(storyId, phaseNumber, storyName) => setEditing({ ...editing, storyId, phaseNumber, storyName })}
+              />
               <div className="col-span-2">
                 <Label className="text-xs">Type</Label>
                 <Select value={editing.dependencyType} onValueChange={v => update('dependencyType', v)}>
