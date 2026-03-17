@@ -24,7 +24,7 @@ const emptyDep = (): Dependency => ({
 
 export default function DependenciesPage() {
   const { dependencies, addDependency, updateDependency, deleteDependency } = useDependencies();
-  const { stories } = useStories();
+  
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editing, setEditing] = useState<Dependency | null>(null);
 
