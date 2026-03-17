@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-const categories: BacklogCategory[] = ['To Be Written', 'Business Requirement', 'Wishlist', 'Emergency', 'Future Enhancement'];
+const categories: BacklogCategory[] = ['Compliance', 'Business Requirement', 'Wishlist', 'Emergency', 'Future Enhancement'];
 
 const emptyItem = (): BacklogItem => ({
   id: generateId(), title: '', description: '', category: 'Business Requirement',

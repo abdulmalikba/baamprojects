@@ -6,7 +6,7 @@ export type DependencyStatus = 'Open' | 'Resolved';
 export type BugSeverity = 'Low' | 'Medium' | 'High' | 'Critical';
 export type BugStatus = 'Open' | 'Fixed' | 'Retested' | 'Closed';
 export type ObservationStatus = 'Open' | 'In Progress' | 'Resolved' | 'Closed';
-export type BacklogCategory = 'To Be Written' | 'Business Requirement' | 'Wishlist' | 'Emergency' | 'Future Enhancement';
+export type BacklogCategory = 'Compliance' | 'Business Requirement' | 'Wishlist' | 'Emergency' | 'Future Enhancement';
 export type DelayOwner = 'Development' | 'SIT' | 'UAT' | 'Business' | 'Dependency' | 'Other';
 
 export interface DateRevision {
