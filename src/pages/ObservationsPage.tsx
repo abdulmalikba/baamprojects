@@ -90,9 +90,10 @@ export default function ObservationsPage() {
           <DialogHeader><DialogTitle>{editing && observations.find(o => o.id === editing.id) ? 'Edit' : 'Add'} Observation</DialogTitle></DialogHeader>
           {editing && (
             <div className="grid grid-cols-2 gap-3">
-              <div><Label className="text-xs">Story ID</Label><Input value={editing.storyId} onChange={e => update('storyId', e.target.value)} /></div>
-              <div><Label className="text-xs">Phase</Label><Input type="number" min={1} value={editing.phaseNumber} onChange={e => update('phaseNumber', parseInt(e.target.value) || 1)} /></div>
-              <div className="col-span-2"><Label className="text-xs">Story Name</Label><Input value={editing.storyName} onChange={e => update('storyName', e.target.value)} /></div>
+              <StorySelector
+                value={editing.storyId ? `${editing.storyId}|${editing.phaseNumber}` : ''}
+                onChange={(storyId, phaseNumber, storyName) => setEditing({ ...editing, storyId, phaseNumber, storyName })}
+              />
               <div className="col-span-2"><Label className="text-xs">Description</Label><Textarea value={editing.observationDescription} onChange={e => update('observationDescription', e.target.value)} rows={2} /></div>
               <div><Label className="text-xs">Given By</Label><Input value={editing.givenBy} onChange={e => update('givenBy', e.target.value)} /></div>
               <div>
