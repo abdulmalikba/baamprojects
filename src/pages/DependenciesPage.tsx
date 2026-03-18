@@ -75,6 +75,7 @@ export default function DependenciesPage() {
               <tr key={dep.id} className="border-b border-border last:border-0 hover:bg-muted/50 cursor-pointer" onClick={() => openEdit(dep)}>
                 <td className="px-4 py-2.5 font-mono text-xs">{dep.storyId}</td>
                 <td className="px-4 py-2.5">{dep.phaseNumber}</td>
+                <td className="px-4 py-2.5 max-w-[150px] truncate">{dep.storyName || '—'}</td>
                 <td className="px-4 py-2.5 text-xs">{dep.dependencyType}</td>
                 <td className="px-4 py-2.5 max-w-[200px] truncate">{dep.dependencyDescription}</td>
                 <td className="px-4 py-2.5 text-muted-foreground">{dep.responsibleTeam || '—'}</td>

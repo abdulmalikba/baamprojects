@@ -71,6 +71,7 @@ export default function ObservationsPage() {
               <tr key={obs.id} className="border-b border-border last:border-0 hover:bg-muted/50 cursor-pointer" onClick={() => openEdit(obs)}>
                 <td className="px-4 py-2.5 font-mono text-xs">{obs.storyId}</td>
                 <td className="px-4 py-2.5">{obs.phaseNumber}</td>
+                <td className="px-4 py-2.5 max-w-[150px] truncate">{obs.storyName || '—'}</td>
                 <td className="px-4 py-2.5 max-w-[200px] truncate">{obs.observationDescription}</td>
                 <td className="px-4 py-2.5 text-muted-foreground">{obs.givenBy || '—'}</td>
                 <td className="px-4 py-2.5 text-xs text-muted-foreground">{formatDate(obs.observationGivenDate)}</td>
