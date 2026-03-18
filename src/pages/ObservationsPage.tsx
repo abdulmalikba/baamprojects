@@ -60,7 +60,7 @@ export default function ObservationsPage() {
       <div className="bg-card rounded-lg border border-border overflow-x-auto">
         <table className="w-full text-sm">
           <thead><tr className="border-b border-border">
-            {['Story ID', 'Ph', 'Description', 'Given By', 'Given', 'Resolution Days', 'Status', ''].map(h => (
+            {['Story ID', 'Ph', 'Story Name', 'Description', 'Given By', 'Given', 'Resolution Days', 'Status', ''].map(h => (
               <th key={h} className="text-left px-4 py-2.5 text-xs font-medium text-muted-foreground uppercase tracking-wider">{h}</th>
             ))}
           </tr></thead>
