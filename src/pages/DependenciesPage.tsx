@@ -70,7 +70,7 @@ export default function DependenciesPage() {
           </tr></thead>
           <tbody>
             {dependencies.length === 0 ? (
-              <tr><td colSpan={8} className="text-center py-12 text-muted-foreground">No dependencies tracked</td></tr>
+              <tr><td colSpan={9} className="text-center py-12 text-muted-foreground">No dependencies tracked</td></tr>
             ) : dependencies.map(dep => (
               <tr key={dep.id} className="border-b border-border last:border-0 hover:bg-muted/50 cursor-pointer" onClick={() => openEdit(dep)}>
                 <td className="px-4 py-2.5 font-mono text-xs">{dep.storyId}</td>
