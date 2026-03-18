@@ -66,7 +66,7 @@ export default function ObservationsPage() {
           </tr></thead>
           <tbody>
             {observations.length === 0 ? (
-              <tr><td colSpan={8} className="text-center py-12 text-muted-foreground">No observations</td></tr>
+              <tr><td colSpan={9} className="text-center py-12 text-muted-foreground">No observations</td></tr>
             ) : observations.map(obs => (
               <tr key={obs.id} className="border-b border-border last:border-0 hover:bg-muted/50 cursor-pointer" onClick={() => openEdit(obs)}>
                 <td className="px-4 py-2.5 font-mono text-xs">{obs.storyId}</td>
