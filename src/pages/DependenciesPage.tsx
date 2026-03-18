@@ -64,17 +64,18 @@ export default function DependenciesPage() {
       <div className="bg-card rounded-lg border border-border overflow-x-auto">
         <table className="w-full text-sm">
           <thead><tr className="border-b border-border">
-            {['Story ID', 'Ph', 'Type', 'Description', 'Team', 'Duration', 'Status', ''].map(h => (
+            {['Story ID', 'Ph', 'Story Name', 'Type', 'Description', 'Team', 'Duration', 'Status', ''].map(h => (
               <th key={h} className="text-left px-4 py-2.5 text-xs font-medium text-muted-foreground uppercase tracking-wider">{h}</th>
             ))}
           </tr></thead>
           <tbody>
             {dependencies.length === 0 ? (
-              <tr><td colSpan={8} className="text-center py-12 text-muted-foreground">No dependencies tracked</td></tr>
+              <tr><td colSpan={9} className="text-center py-12 text-muted-foreground">No dependencies tracked</td></tr>
             ) : dependencies.map(dep => (
               <tr key={dep.id} className="border-b border-border last:border-0 hover:bg-muted/50 cursor-pointer" onClick={() => openEdit(dep)}>
                 <td className="px-4 py-2.5 font-mono text-xs">{dep.storyId}</td>
                 <td className="px-4 py-2.5">{dep.phaseNumber}</td>
+                <td className="px-4 py-2.5 max-w-[150px] truncate">{dep.storyName || '—'}</td>
                 <td className="px-4 py-2.5 text-xs">{dep.dependencyType}</td>
                 <td className="px-4 py-2.5 max-w-[200px] truncate">{dep.dependencyDescription}</td>
                 <td className="px-4 py-2.5 text-muted-foreground">{dep.responsibleTeam || '—'}</td>

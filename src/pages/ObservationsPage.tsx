@@ -60,17 +60,18 @@ export default function ObservationsPage() {
       <div className="bg-card rounded-lg border border-border overflow-x-auto">
         <table className="w-full text-sm">
           <thead><tr className="border-b border-border">
-            {['Story ID', 'Ph', 'Description', 'Given By', 'Given', 'Resolution Days', 'Status', ''].map(h => (
+            {['Story ID', 'Ph', 'Story Name', 'Description', 'Given By', 'Given', 'Resolution Days', 'Status', ''].map(h => (
               <th key={h} className="text-left px-4 py-2.5 text-xs font-medium text-muted-foreground uppercase tracking-wider">{h}</th>
             ))}
           </tr></thead>
           <tbody>
             {observations.length === 0 ? (
-              <tr><td colSpan={8} className="text-center py-12 text-muted-foreground">No observations</td></tr>
+              <tr><td colSpan={9} className="text-center py-12 text-muted-foreground">No observations</td></tr>
             ) : observations.map(obs => (
               <tr key={obs.id} className="border-b border-border last:border-0 hover:bg-muted/50 cursor-pointer" onClick={() => openEdit(obs)}>
                 <td className="px-4 py-2.5 font-mono text-xs">{obs.storyId}</td>
                 <td className="px-4 py-2.5">{obs.phaseNumber}</td>
+                <td className="px-4 py-2.5 max-w-[150px] truncate">{obs.storyName || '—'}</td>
                 <td className="px-4 py-2.5 max-w-[200px] truncate">{obs.observationDescription}</td>
                 <td className="px-4 py-2.5 text-muted-foreground">{obs.givenBy || '—'}</td>
                 <td className="px-4 py-2.5 text-xs text-muted-foreground">{formatDate(obs.observationGivenDate)}</td>

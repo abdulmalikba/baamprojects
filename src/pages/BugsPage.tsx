@@ -61,17 +61,18 @@ export default function BugsPage() {
       <div className="bg-card rounded-lg border border-border overflow-x-auto">
         <table className="w-full text-sm">
           <thead><tr className="border-b border-border">
-            {['Story ID', 'Ph', 'Bug Description', 'Severity', 'Status', 'Raised', 'Fixed', ''].map(h => (
+            {['Story ID', 'Ph', 'Story Name', 'Bug Description', 'Severity', 'Status', 'Raised', 'Fixed', ''].map(h => (
               <th key={h} className="text-left px-4 py-2.5 text-xs font-medium text-muted-foreground uppercase tracking-wider">{h}</th>
             ))}
           </tr></thead>
           <tbody>
             {bugs.length === 0 ? (
-              <tr><td colSpan={8} className="text-center py-12 text-muted-foreground">No bugs logged</td></tr>
+              <tr><td colSpan={9} className="text-center py-12 text-muted-foreground">No bugs logged</td></tr>
             ) : bugs.map(bug => (
               <tr key={bug.id} className="border-b border-border last:border-0 hover:bg-muted/50 cursor-pointer" onClick={() => openEdit(bug)}>
                 <td className="px-4 py-2.5 font-mono text-xs">{bug.storyId}</td>
                 <td className="px-4 py-2.5">{bug.phaseNumber}</td>
+                <td className="px-4 py-2.5 max-w-[150px] truncate">{bug.storyName || '—'}</td>
                 <td className="px-4 py-2.5 max-w-[200px] truncate">{bug.bugDescription}</td>
                 <td className="px-4 py-2.5"><StatusBadge status={bug.severity} /></td>
                 <td className="px-4 py-2.5"><StatusBadge status={bug.status} /></td>
